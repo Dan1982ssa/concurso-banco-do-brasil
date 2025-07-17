@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concurseiro Mapeado: Sistema Financeiro Nacional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .answer, .feedback, .flashcard-feedback-buttons, .flashcard-final-feedback {
+            display: none;
+        }
+        .option {
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flashcard-container.is-flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+        .flashcard-back {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    
+    <header id="main-header" class="gradient-bg text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <h1 class="text-xl md:text-2xl font-bold">Concurseiro Mapeado</h1>
+                    <a href="https://www.instagram.com/concurseiromapeado" target="_blank" class="hover:opacity-80 transition-opacity">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-4 text-sm font-semibold">
+                    <a href="#cap1" class="hover:text-yellow-300 transition-colors">SFN</a>
+                    <a href="#cap2" class="hover:text-yellow-300 transition-colors">Estrutura</a>
+                    <a href="#cap3" class="hover:text-yellow-300 transition-colors">CMN</a>
+                    <a href="#cap4" class="hover:text-yellow-300 transition-colors">BACEN</a>
+                    <a href="#cap5" class="hover:text-yellow-300 transition-colors">CVM</a>
+                    <a href="#cap6" class="hover:text-yellow-300 transition-colors">Instituições</a>
+                    <a href="#cap7" class="hover:text-yellow-300 transition-colors">Crises</a>
+                    <a href="#flashcards" class="bg-yellow-400 text-blue-900 px-3 py-1 rounded-full hover:bg-yellow-300 transition-colors">Flashcards</a>
+                </nav>
+                 <div class="md:hidden">
+                    <select onchange="location = this.value;" class="bg-blue-800 text-white rounded p-2">
+                        <option value="#">Navegar...</option>
+                        <option value="#cap1">Capítulo 1</option>
+                        <option value="#cap2">Capítulo 2</option>
+                        <option value="#cap3">Capítulo 3</option>
+                        <option value="#cap4">Capítulo 4</option>
+                        <option value="#cap5">Capítulo 5</option>
+                        <option value="#cap6">Capítulo 6</option>
+                        <option value="#cap7">Capítulo 7</option>
+                        <option value="#flashcards">Flashcards</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    
+    <section class="gradient-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">Sistema Financeiro Nacional</h2>
+            <p class="text-lg md:text-xl text-blue-200 max-w-3xl mx-auto">Tudo mapeado e direto ao ponto: o passo a passo do <a href="https://www.instagram.com/concurseiromapeado" target="_blank" class="font-bold text-yellow-300 hover:underline">@concurseiromapeado</a> pra você gabaritar na prova de Conhecimentos Bancários do Banco do Brasil.</p>
+        </div>
+    </section>
+
+    
+    <main class="container mx-auto px-6 py-12 md:py-20">
+
+        
+        <section id="cap1" class="mb-20 scroll-mt-20">
+            <h3 class="text-3xl font-bold text-blue-800 mb-8 border-l-4 border-blue-500 pl-4">Capítulo 1: O Que é o SFN e Por Que Ele é Importante?</h3>
+            <div class="bg-white p-8 rounded-lg card-shadow mb-8">
+                <h4 class="text-2xl font-semibold text-gray-700 mb-4">TEORIA</h4>
+                <div class="space-y-4 text-base leading-relaxed">
+                    <p>Imagine o Sistema Financeiro Nacional (SFN) como o sistema circulatório da economia. Assim como o sangue leva oxigênio para todo o corpo, o SFN faz o dinheiro circular entre pessoas, empresas e o governo, permitindo que a economia funcione e cresça.</p>
+                    <p>Sua principal função é a <strong>intermediação financeira</strong>: ele pega o dinheiro de quem tem de sobra (os agentes superavitários ou poupadores) e o leva para quem precisa (os agentes deficitários ou tomadores de crédito), como um empreendedor que quer abrir um restaurante.</p>
+                    <p>O SFN é composto por quatro grandes mercados que facilitam essa circulação de recursos:</p>
+                    <ol class="list-decimal list-inside mt-4 space-y-2">
+                        <li><strong>Mercado Monetário:</strong> Para transações de curtíssimo prazo (geralmente um dia) entre os bancos e o Banco Central. É aqui que se controla a "liquidez" (a quantidade de dinheiro disponível) da economia.</li>
+                        <li><strong>Mercado de Crédito:</strong> Onde ocorrem os empréstimos e financiamentos, ligando diretamente poupadores e tomadores.</li>
+                        <li><strong>Mercado de Capitais:</strong> Onde as empresas captam recursos vendendo "pedaços" delas (ações) ou títulos de dívida (debentures) para investidores. É fundamental para grandes projetos de longo prazo.</li>
+                        <li><strong>Mercado de Câmbio:</strong> Onde são negociadas as moedas estrangeiras (dólar, euro, etc.), essencial para o comércio internacional.</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="bg-slate-100 p-8 rounded-lg card-shadow mb-8 question-card border border-slate-200">
+                <h4 class="text-2xl font-semibold text-gray-700 mb-4">QUESTÃO COMENTADA</h4>
+                <p class="font-semibold mb-4">(FGV/BANESTES/2021) O Sistema Financeiro Nacional (SFN) é o conjunto de instituições e instrumentos que possibilitam a transferência de recursos entre os agentes econômicos superavitários e os deficitários. Essa transferência é possível por conta:</p>
+                <div class="options-container space-y-3 mb-4">
+                    <div onclick="checkAnswer(this)" data-correct="true" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">a) dos mercados monetário, de crédito, de capitais e cambial;</div>
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">b) da atuação dos bancos comerciais;</div>
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">c) da atuação dos bancos centrais;</div>
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">d) das bolsas de valores;</div>
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">e) da atuação da CVM.</div>
+                </div>
+                <div class="feedback text-lg font-bold my-4"></div>
+                <div class="answer mt-6 border-t pt-4">
+                    <p class="font-bold text-lg mb-2">Gabarito: <span class="text-green-600">Letra A</span></p>
+                    <p><strong>Comentário:</strong> A questão pergunta qual é a base que permite a transferência de recursos no SFN. Conforme a teoria, essa transferência ocorre por meio dos quatro grandes mercados. As outras alternativas (bancos, CVM) são partes do sistema, mas não o sistema em sua totalidade.</p>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="cap2" class="mb-20 scroll-mt-20">
+            <h3 class="text-3xl font-bold text-blue-800 mb-8 border-l-4 border-blue-500 pl-4">Capítulo 2: A Estrutura do SFN: Quem Manda em Quem?</h3>
+            <div class="bg-white p-8 rounded-lg card-shadow mb-8">
+                <h4 class="text-2xl font-semibold text-gray-700 mb-4">TEORIA</h4>
+                <div class="space-y-4 text-base leading-relaxed">
+                    <p>Para funcionar de forma organizada e segura, o SFN é dividido em uma hierarquia de três níveis. Pense em uma empresa:</p>
+                    <ol class="list-decimal list-inside mt-4 space-y-3">
+                        <li><strong>Órgãos Normativos (A "Diretoria" que Cria as Regras):</strong> Eles definem as políticas e diretrizes gerais, mas não se envolvem na execução do dia a dia. São os "chefões".
+                            <ul class="list-disc list-inside ml-6 mt-2">
+                                <li>Conselho Monetário Nacional (CMN): O órgão máximo, responsável por moeda, crédito, capitais e câmbio.</li>
+                                <li>Conselho Nacional de Seguros Privados (CNSP): Define as regras para o mercado de seguros, previdência complementar aberta e capitalização.</li>
+                                <li>Conselho Nacional de Previdência Complementar (CNPC): Define as regras para os fundos de pensão.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Entidades Supervisoras (Os "Gerentes" que Fiscalizam):</strong> Garantem que as regras da "diretoria" sejam cumpridas pelos operadores.
+                            <ul class="list-disc list-inside ml-6 mt-2">
+                                <li>Banco Central do Brasil (BACEN): Supervisiona as instituições financeiras.</li>
+                                <li>Comissão de Valores Mobiliários (CVM): Supervisiona o mercado de capitais (bolsa de valores, ações, etc.).</li>
+                                <li>Superintendência de Seguros Privados (SUSEP): Fiscaliza o mercado de seguros e previdência aberta.</li>
+                                <li>Superintendência Nacional de Previdência Complementar (PREVIC): Fiscaliza os fundos de pensão.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Operadores (A "Equipe de Vendas" que Atende o Público):</strong> São as instituições que realizam a intermediação e prestam os serviços financeiros diretamente à sociedade. Incluem bancos, caixas econômicas, corretoras, cooperativas de crédito e a bolsa de valores.</li>
+                    </ol>
+                    <div class="mt-6 overflow-x-auto">
+                        <h5 class="font-bold text-lg mb-2">Tabela Resumo: Quem Manda em Quem?</h5>
+                        <table class="min-w-full bg-white border border-gray-200">
+                            <thead class="bg-blue-100">
+                                <tr>
+                                    <th class="py-2 px-4 border-b">Órgão Normativo (Define a Regra)</th>
+                                    <th class="py-2 px-4 border-b">Entidade Supervisora (Fiscaliza a Regra)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="text-center">
+                                    <td class="py-2 px-4 border-b">Conselho Monetário Nacional (CMN)</td>
+                                    <td class="py-2 px-4 border-b">Banco Central (BACEN) e CVM</td>
+                                </tr>
+                                <tr class="text-center bg-gray-50">
+                                    <td class="py-2 px-4 border-b">Conselho Nacional de Seguros Privados (CNSP)</td>
+                                    <td class="py-2 px-4 border-b">SUSEP</td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="py-2 px-4 border-b">Conselho Nacional de Previdência Complementar (CNPC)</td>
+                                    <td class="py-2 px-4 border-b">PREVIC</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+             <div class="bg-slate-100 p-8 rounded-lg card-shadow mb-8 question-card border border-slate-200">
+                <h4 class="text-2xl font-semibold text-gray-700 mb-4">QUESTÃO COMENTADA</h4>
+                <p class="font-semibold mb-4">(QUADRIX/IPREV-DF/2023) A estrutura do sistema financeiro nacional é composta por três órgãos normativos: o Conselho Monetário Nacional (CMN), a Comissão Nacional de Seguros Privados (CNSP) e o Banco Central do Brasil (BCB).</p>
+                <div class="options-container space-y-3 mb-4">
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer"> (C) Certo</div>
+                    <div onclick="checkAnswer(this)" data-correct="true" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">(E) Errado</div>
+                </div>
+                <div class="feedback text-lg font-bold my-4"></div>
+                <div class="answer mt-6 border-t pt-4">
+                    <p class="font-bold text-lg mb-2">Gabarito: <span class="text-green-600">Errado</span></p>
+                    <p><strong>Comentário:</strong> A pegadinha está em misturar um órgão supervisor (BCB) com os órgãos normativos. Os órgãos normativos são o "Triplo C": CMN, CNSP e CNPC. O Banco Central (BCB) é uma entidade supervisora, que fiscaliza e executa as normas.</p>
+                </div>
+            </div>
+            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-6 rounded-lg mb-8">
+                <h4 class="text-2xl font-semibold mb-4 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>PEGADINHAS</h4>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>Confundir os papéis:</strong> A maior pegadinha é misturar quem cria a regra (normativo) com quem fiscaliza (supervisor). O BACEN não cria a política monetária, ele a executa a partir das diretrizes do CMN.</li>
+                    <li><strong>Esquecer os "outros" sistemas:</strong> Lembre-se que o SFN não é só CMN e BACEN. Existe um subsistema para seguros (CNSP/SUSEP) e outro para fundos de pensão (CNPC/PREVIC).</li>
+                </ul>
+            </div>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg">
+                <h4 class="text-2xl font-semibold text-blue-800 mb-4">RESUMO DO CAPÍTULO</h4>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>Estrutura do SFN:</strong> 3 níveis (Normativo, Supervisor, Operador).</li>
+                    <li><strong>Normativos (Definem Regras):</strong> CMN, CNSP, CNPC.</li>
+                    <li><strong>Supervisores (Fiscalizam):</strong> BACEN, CVM, SUSEP, PREVIC.</li>
+                    <li><strong>Operadores (Executam):</strong> Bancos, corretoras, etc.</li>
+                </ul>
+            </div>
+        </section>
+
+        
+        <section id="cap3" class="mb-20 scroll-mt-20">
+            <h3 class="text-3xl font-bold text-blue-800 mb-8 border-l-4 border-blue-500 pl-4">Capítulo 3: O Cérebro do Sistema: O Conselho Monetário Nacional (CMN)</h3>
+            <div class="bg-white p-8 rounded-lg card-shadow mb-8">
+                <h4 class="text-2xl font-semibold text-gray-700 mb-4">TEORIA</h4>
+                <div class="space-y-4 text-base leading-relaxed">
+                    <p>O CMN é o principal órgão normativo do SFN, responsável por formular a política da moeda e do crédito do país.</p>
+                    <p><strong>Composição:</strong> É formado por três membros: o Ministro da Fazenda (que o preside), o Ministro do Planejamento e Orçamento e o Presidente do Banco Central.</p>
+                    <p><strong>Principais Atribuições:</strong></p>
+                    <ul class="list-disc list-inside mt-2 space-y-2">
+                        <li>Definir a meta anual para a inflação.</li>
+                        <li>Fixar as diretrizes da política cambial (regras para o mercado de moedas estrangeiras).</li>
+                        <li>Disciplinar o crédito em todas as suas modalidades.</li>
+                        <li>Coordenar a política da dívida pública interna e externa.</li>
+                        <li>Regular a constituição e a fiscalização das instituições financeiras.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bg-slate-100 p-8 rounded-lg card-shadow mb-8 question-card border border-slate-200">
+                <h4 class="text-2xl font-semibold text-gray-700 mb-4">QUESTÃO COMENTADA</h4>
+                <p class="font-semibold mb-4">(CESGRANRIO/AGERIO/2023) Como integrante do Sistema Financeiro Nacional, cabe ao Conselho Monetário Nacional:</p>
+                <div class="options-container space-y-3 mb-4">
+                    <div onclick="checkAnswer(this)" data-correct="true" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">a) definir as metas anuais de inflação.</div>
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">b) determinar as taxas básicas de juros da economia brasileira.</div>
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">c) atuar como emprestador de última instância.</div>
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">d) calcular o Índice Nacional de Preços ao Consumidor Amplo (IPCA).</div>
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">e) executar a política fiscal.</div>
+                </div>
+                <div class="feedback text-lg font-bold my-4"></div>
+                <div class="answer mt-6 border-t pt-4">
+                    <p class="font-bold text-lg mb-2">Gabarito: <span class="text-green-600">Letra A</span></p>
+                    <p><strong>Comentário:</strong> A única atribuição correta do CMN na lista é definir a meta de inflação. Determinar a taxa Selic é com o COPOM/BACEN; ser emprestador de última instância é o BACEN; calcular o IPCA é com o IBGE; e executar a política fiscal é com o Ministério da Fazenda.</p>
+                </div>
+            </div>
+            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-6 rounded-lg mb-8">
+                <h4 class="text-2xl font-semibold mb-4 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>PEGADINHAS</h4>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>CMN vs. BACEN:</strong> O CMN define a meta da inflação, mas quem define a taxa de juros (Selic) para atingir essa meta é o COPOM, um comitê do BACEN. O CMN dá a ordem, o BACEN executa.</li>
+                    <li><strong>Composição:</strong> Não confunda a composição do CMN. São apenas 3 membros.</li>
+                </ul>
+            </div>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg">
+                <h4 class="text-2xl font-semibold text-blue-800 mb-4">RESUMO DO CAPÍTULO</h4>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>Órgão Normativo Máximo:</strong> Define as principais políticas do SFN.</li>
+                    <li><strong>Composição:</strong> Ministro da Fazenda, Ministro do Planejamento, Presidente do BACEN.</li>
+                    <li><strong>Função Chave:</strong> Estabelecer a meta da inflação.</li>
+                </ul>
+            </div>
+        </section>
+
+        
+        <section id="cap4" class="mb-20 scroll-mt-20">
+            <h3 class="text-3xl font-bold text-blue-800 mb-8 border-l-4 border-blue-500 pl-4">Capítulo 4: O Coração Operacional: O Banco Central (BACEN)</h3>
+            <div class="bg-white p-8 rounded-lg card-shadow mb-8">
+                <h4 class="text-2xl font-semibold text-gray-700 mb-4">TEORIA</h4>
+                <div class="space-y-4 text-base leading-relaxed">
+                    <p>O BACEN é a principal entidade supervisora e executora do SFN. É uma autarquia de natureza especial, com autonomia e sem vinculação a nenhum ministério.</p>
+                    <p><strong>Objetivo Fundamental:</strong> Assegurar a estabilidade de preços, ou seja, controlar a inflação.</p>
+                    <p><strong>Principais Funções e Competências:</strong></p>
+                    <ul class="list-disc list-inside mt-2 space-y-2">
+                        <li><strong>Banco Emissor:</strong> Tem o monopólio da emissão de moeda no Brasil. (A Casa da Moeda apenas imprime).</li>
+                        <li><strong>Banqueiro do Governo:</strong> Administra as contas e as reservas internacionais do governo. É proibido de conceder empréstimos ao Tesouro Nacional.</li>
+                        <li><strong>Banco dos Bancos:</strong> Recebe os depósitos compulsórios, realiza operações de redesconto (empréstimos aos bancos) e atua como "emprestador de última instância".</li>
+                        <li><strong>Executor e Supervisor:</strong> Fiscaliza as instituições financeiras, autoriza seu funcionamento e executa as políticas definidas pelo CMN.</li>
+                    </ul>
+                </div>
+            </div>
+             <div class="bg-slate-100 p-8 rounded-lg card-shadow mb-8 question-card border border-slate-200">
+                <h4 class="text-2xl font-semibold text-gray-700 mb-4">QUESTÃO COMENTADA</h4>
+                <p class="font-semibold mb-4">(Questão Adaptada) Assinale a alternativa que NÃO corresponde a uma competência do Banco Central do Brasil (BACEN).</p>
+                <div class="options-container space-y-3 mb-4">
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">a) Emitir moeda com monopólio.</div>
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">b) Atuar como banqueiro do governo.</div>
+                    <div onclick="checkAnswer(this)" data-correct="true" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">c) Conceder empréstimos diretos ao Tesouro Nacional.</div>
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">d) Ser o emprestador de última instância para os bancos.</div>
+                </div>
+                <div class="feedback text-lg font-bold my-4"></div>
+                <div class="answer mt-6 border-t pt-4">
+                    <p class="font-bold text-lg mb-2">Gabarito: <span class="text-green-600">Letra C</span></p>
+                    <p><strong>Comentário:</strong> O BACEN tem como uma de suas principais vedações a concessão de empréstimos diretos ao Tesouro Nacional. Essa medida visa impedir que o governo financie seus gastos com emissão de moeda, o que poderia gerar inflação descontrolada. As outras alternativas são funções clássicas do Banco Central.</p>
+                </div>
+            </div>
+            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-6 rounded-lg mb-8">
+                <h4 class="text-2xl font-semibold mb-4 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>PEGADINHAS</h4>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>Emissão de Moeda:</strong> O BACEN decide a emissão, mas quem imprime o dinheiro físico é a Casa da Moeda.</li>
+                    <li><strong>Empréstimo ao Tesouro:</strong> É uma proibição fundamental. O BACEN não pode financiar o governo diretamente para evitar a emissão descontrolada de moeda.</li>
+                </ul>
+            </div>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg">
+                <h4 class="text-2xl font-semibold text-blue-800 mb-4">RESUMO DO CAPÍTULO</h4>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>Principal Supervisor/Executor:</strong> Garante o funcionamento do sistema.</li>
+                    <li><strong>Objetivo Principal:</strong> Controlar a inflação.</li>
+                    <li><strong>Funções:</strong> Banco emissor, banqueiro do governo e banco dos bancos.</li>
+                    <li><strong>Vedação Importante:</strong> Proibido de emprestar diretamente ao Tesouro Nacional.</li>
+                </ul>
+            </div>
+        </section>
+
+        
+        <section id="cap5" class="mb-20 scroll-mt-20">
+            <h3 class="text-3xl font-bold text-blue-800 mb-8 border-l-4 border-blue-500 pl-4">Capítulo 5: A "Polícia" da Bolsa: A Comissão de Valores Mobiliários (CVM)</h3>
+            <div class="bg-white p-8 rounded-lg card-shadow mb-8">
+                <h4 class="text-2xl font-semibold text-gray-700 mb-4">TEORIA</h4>
+                <div class="space-y-4 text-base leading-relaxed">
+                    <p>A CVM é a entidade supervisora responsável por regular e fiscalizar o mercado de valores mobiliários (ações, debentures, fundos de investimento, etc.).</p>
+                    <p><strong>Objetivo Principal:</strong> Proteger os investidores contra fraudes e garantir a transparência e o bom funcionamento do mercado de capitais.</p>
+                </div>
+            </div>
+            <div class="bg-slate-100 p-8 rounded-lg card-shadow mb-8 question-card border border-slate-200">
+                <h4 class="text-2xl font-semibold text-gray-700 mb-4">QUESTÃO COMENTADA</h4>
+                <p class="font-semibold mb-4">(Questão Adaptada - CESPE/CEBRASPE) Compete à Comissão de Valores Mobiliários (CVM) fiscalizar e disciplinar as atividades dos diversos atores do mercado de capitais, EXCETO:</p>
+                <div class="options-container space-y-3 mb-4">
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">a) as companhias abertas (que vendem ações na bolsa).</div>
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">b) os fundos de investimento.</div>
+                    <div onclick="checkAnswer(this)" data-correct="true" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">c) a concessão de crédito direto ao consumidor por bancos comerciais.</div>
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">d) as corretoras e distribuidoras de valores mobiliários.</div>
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">e) os auditores independentes que atuam no mercado de capitais.</div>
+                </div>
+                <div class="feedback text-lg font-bold my-4"></div>
+                <div class="answer mt-6 border-t pt-4">
+                    <p class="font-bold text-lg mb-2">Gabarito: <span class="text-green-600">Letra C</span></p>
+                    <p><strong>Comentário:</strong> A CVM é a "polícia" do mercado de capitais. Sua atuação se concentra em valores mobiliários (ações, fundos, etc.) e seus participantes. A concessão de crédito direto ao consumidor é uma atividade típica do mercado de crédito, supervisionada pelo Banco Central (BACEN), e não pela CVM.</p>
+                </div>
+            </div>
+             <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-6 rounded-lg mb-8">
+                <h4 class="text-2xl font-semibold mb-4 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>PEGADINHAS</h4>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>CVM vs. BACEN:</strong> Não confunda as áreas de atuação. BACEN cuida das instituições financeiras (bancos) e do mercado de crédito/câmbio, enquanto a CVM cuida do mercado de capitais (bolsa, ações, fundos).</li>
+                </ul>
+            </div>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg">
+                <h4 class="text-2xl font-semibold text-blue-800 mb-4">RESUMO DO CAPÍTULO</h4>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>Entidade Supervisora:</strong> Fiscaliza o mercado de capitais.</li>
+                    <li><strong>Apelido:</strong> "Polícia" da Bolsa.</li>
+                    <li><strong>Objetivo:</strong> Proteger o investidor e garantir a transparência.</li>
+                </ul>
+            </div>
+        </section>
+
+        
+        <section id="cap6" class="mb-20 scroll-mt-20">
+            <h3 class="text-3xl font-bold text-blue-800 mb-8 border-l-4 border-blue-500 pl-4">Capítulo 6: Os Jogadores do Mercado: As Instituições Financeiras</h3>
+            <div class="bg-white p-8 rounded-lg card-shadow mb-8">
+                <h4 class="text-2xl font-semibold text-gray-700 mb-4">TEORIA</h4>
+                <div class="space-y-4 text-base leading-relaxed">
+                    <p>São as empresas, públicas ou privadas, que realizam a intermediação de recursos. Precisam de autorização do BACEN para funcionar. A classificação mais importante para concursos é:</p>
+                    <ul class="list-disc list-inside mt-2 space-y-2">
+                        <li><strong>Instituições Bancárias:</strong> Podem captar depósitos à vista (dinheiro em conta corrente, que pode ser sacado a qualquer momento). É essa capacidade que lhes permite "criar moeda". Exemplo: Caixa Econômica Federal, bancos comerciais.</li>
+                        <li><strong>Instituições Não Bancárias:</strong> Atuam no mercado, mas não podem captar depósitos à vista. Exemplos: Bancos de investimento, corretoras, sociedades de arrendamento mercantil.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bg-slate-100 p-8 rounded-lg card-shadow mb-8 question-card border border-slate-200">
+                <h4 class="text-2xl font-semibold text-gray-700 mb-4">QUESTÃO COMENTADA</h4>
+                <p class="font-semibold mb-4">(Questão Adaptada - FGV) A principal característica que distingue uma instituição financeira bancária de uma não bancária é a capacidade de:</p>
+                <div class="options-container space-y-3 mb-4">
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">a) realizar operações de arrendamento mercantil (leasing).</div>
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">b) administrar fundos de investimento.</div>
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">c) intermediar operações no mercado de capitais.</div>
+                    <div onclick="checkAnswer(this)" data-correct="true" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">d) captar depósitos à vista do público.</div>
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">e) conceder financiamentos de longo prazo.</div>
+                </div>
+                <div class="feedback text-lg font-bold my-4"></div>
+                <div class="answer mt-6 border-t pt-4">
+                    <p class="font-bold text-lg mb-2">Gabarito: <span class="text-green-600">Letra D</span></p>
+                    <p><strong>Comentário:</strong> O divisor de águas entre instituições bancárias e não bancárias é a autorização para captar depósitos à vista (dinheiro em conta corrente). Apenas as instituições bancárias (como bancos comerciais e caixas econômicas) podem fazer isso. Essa capacidade é fundamental para o processo de criação de moeda na economia.</p>
+                </div>
+            </div>
+            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-6 rounded-lg mb-8">
+                <h4 class="text-2xl font-semibold mb-4 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>PEGADINHAS</h4>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>Bancário vs. Não Bancário:</strong> O ponto-chave é a captação de <strong>depósito à vista</strong>. Um banco de investimento, apesar do nome "banco", é uma instituição não bancária.</li>
+                </ul>
+            </div>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg">
+                <h4 class="text-2xl font-semibold text-blue-800 mb-4">RESUMO DO CAPÍTULO</h4>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>Operadores:</strong> Realizam a intermediação de recursos.</li>
+                    <li><strong>Autorização:</strong> Precisam do aval do BACEN para funcionar.</li>
+                    <li><strong>Diferença Chave:</strong> Instituições bancárias captam depósito à vista; não bancárias, não.</li>
+                </ul>
+            </div>
+        </section>
+
+        
+        <section id="cap7" class="mb-20 scroll-mt-20">
+            <h3 class="text-3xl font-bold text-blue-800 mb-8 border-l-4 border-blue-500 pl-4">Capítulo 7: Plano de Emergência: O Que Acontece Quando um Banco Entra em Crise?</h3>
+            <div class="bg-white p-8 rounded-lg card-shadow mb-8">
+                <h4 class="text-2xl font-semibold text-gray-700 mb-4">TEORIA</h4>
+                <div class="space-y-4 text-base leading-relaxed">
+                    <p>Quando uma instituição financeira enfrenta problemas graves, o BACEN possui instrumentos para intervir e proteger a estabilidade do sistema. Os principais regimes de resolução são:</p>
+                     <ul class="list-disc list-inside mt-2 space-y-2">
+                        <li><strong>RAET (Regime de Administração Especial Temporária):</strong> O BACEN afasta os administradores e nomeia um conselho para reorganizar a instituição e buscar soluções de mercado, como uma venda ou fusão.</li>
+                        <li><strong>Intervenção:</strong> Uma medida mais drástica para cessar práticas irregulares e evitar o agravamento do risco. Um interventor nomeado pelo BACEN assume a gestão.</li>
+                        <li><strong>Liquidação Extrajudicial:</strong> É o regime mais severo, que visa encerrar as atividades da instituição de forma compulsória e imediata. Um liquidante vende os ativos para pagar os credores.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bg-slate-100 p-8 rounded-lg card-shadow mb-8 question-card border border-slate-200">
+                <h4 class="text-2xl font-semibold text-gray-700 mb-4">QUESTÃO COMENTADA</h4>
+                <p class="font-semibold mb-4">(Questão Adaptada) Quando o Banco Central do Brasil decreta a indisponibilidade dos bens dos controladores de uma instituição financeira, afasta seus diretores e nomeia um interventor para assumir a gestão completa da entidade com o objetivo de corrigir irregularidades graves e evitar um prejuízo maior aos credores, está-se diante de um(a):</p>
+                <div class="options-container space-y-3 mb-4">
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">a) Regime de Administração Especial Temporária (RAET).</div>
+                    <div onclick="checkAnswer(this)" data-correct="true" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">b) Intervenção.</div>
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">c) Liquidação Extrajudicial.</div>
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">d) Falência.</div>
+                    <div onclick="checkAnswer(this)" class="option bg-white p-3 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">e) Recuperação Judicial.</div>
+                </div>
+                <div class="feedback text-lg font-bold my-4"></div>
+                <div class="answer mt-6 border-t pt-4">
+                    <p class="font-bold text-lg mb-2">Gabarito: <span class="text-green-600">Letra B</span></p>
+                    <p><strong>Comentário:</strong> A descrição corresponde exatamente ao regime de Intervenção. É uma medida mais severa que o RAET, onde um interventor do BACEN assume o controle total para sanar os problemas. A Liquidação Extrajudicial seria o passo seguinte e mais grave, visando o encerramento das atividades, e não a sua recuperação.</p>
+                </div>
+            </div>
+             <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-6 rounded-lg mb-8">
+                <h4 class="text-2xl font-semibold mb-4 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>PEGADINHAS</h4>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>Ordem de Gravidade:</strong> As provas podem confundir a ordem. Lembre-se: RAET (mais leve) -> Intervenção (intermediário) -> Liquidação Extrajudicial (mais grave).</li>
+                </ul>
+            </div>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg">
+                <h4 class="text-2xl font-semibold text-blue-800 mb-4">RESUMO DO CAPÍTULO</h4>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>RAET:</strong> Reorganização com administradores afastados.</li>
+                    <li><strong>Intervenção:</strong> Gestão assumida por um interventor do BACEN.</li>
+                    <li><strong>Liquidação Extrajudicial:</strong> Encerramento compulsório das atividades.</li>
+                </ul>
+            </div>
+        </section>
+
+        
+        <section id="flashcards" class="scroll-mt-20 bg-yellow-400/10 p-8 rounded-lg">
+            <div class="flex flex-wrap justify-between items-center gap-4 mb-12">
+                <h3 class="text-3xl font-bold text-yellow-500 border-l-4 border-yellow-500 pl-4">Flashcards</h3>
+                <button onclick="resetFlashcards()" class="bg-red-600 text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-red-700 transition-colors flex-shrink-0">
+                    Resetar Flashcards
+                </button>
+            </div>
+            
+            <div class="mb-16">
+                <h4 class="text-xl font-bold text-gray-800 mb-8 border-b border-gray-200 pb-2">Capítulo 1: O Que é o SFN?</h4>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-24">
+                    <div class="flashcard-container"><div class="relative h-72 flashcard" style="perspective: 1000px;"><div class="flashcard-inner"><div class="flashcard-front bg-white rounded-lg card-shadow border-2 border-blue-200"><p class="text-2xl font-bold text-center">Qual a principal função do SFN?</p></div><div class="flashcard-back bg-blue-50 rounded-lg border-2 border-blue-300"><p class="text-xl font-medium text-center">A <b>intermediação financeira</b>: transferir recursos dos agentes superavitários (poupadores) para os deficitários (tomadores).</p></div></div></div><div class="relative -top-6 z-10 flex justify-center"><button onclick="flipCard(this)" class="reveal-btn bg-blue-600 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors">Revelar</button></div><div class="flashcard-feedback-buttons mt-4 space-x-2 text-center"><button onclick="flashcardFeedback(this, true)" class="bg-green-500 text-white font-bold py-1 px-3 rounded hover:bg-green-600">Acertei</button><button onclick="flashcardFeedback(this, false)" class="bg-red-500 text-white font-bold py-1 px-3 rounded hover:bg-red-600">Errei</button></div><div class="flashcard-final-feedback text-center font-semibold mt-2 p-2 rounded text-sm"></div></div>
+                    <div class="flashcard-container"><div class="relative h-72 flashcard" style="perspective: 1000px;"><div class="flashcard-inner"><div class="flashcard-front bg-white rounded-lg card-shadow border-2 border-blue-200"><p class="text-2xl font-bold text-center">Quais são os 4 mercados do SFN?</p></div><div class="flashcard-back bg-blue-50 rounded-lg border-2 border-blue-300"><p class="text-xl font-medium text-center">Monetário, de Crédito, de Capitais e de Câmbio.</p></div></div></div><div class="relative -top-6 z-10 flex justify-center"><button onclick="flipCard(this)" class="reveal-btn bg-blue-600 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors">Revelar</button></div><div class="flashcard-feedback-buttons mt-4 space-x-2 text-center"><button onclick="flashcardFeedback(this, true)" class="bg-green-500 text-white font-bold py-1 px-3 rounded hover:bg-green-600">Acertei</button><button onclick="flashcardFeedback(this, false)" class="bg-red-500 text-white font-bold py-1 px-3 rounded hover:bg-red-600">Errei</button></div><div class="flashcard-final-feedback text-center font-semibold mt-2 p-2 rounded text-sm"></div></div>
+                </div>
+            </div>
+
+            
+            <div class="mb-16">
+                <h4 class="text-xl font-bold text-gray-800 mb-8 border-b border-gray-200 pb-2">Capítulo 2: A Estrutura do SFN</h4>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-24">
+                    <div class="flashcard-container"><div class="relative h-72 flashcard" style="perspective: 1000px;"><div class="flashcard-inner"><div class="flashcard-front bg-white rounded-lg card-shadow border-2 border-blue-200"><p class="text-2xl font-bold text-center">Quem são os órgãos normativos?</p></div><div class="flashcard-back bg-blue-50 rounded-lg border-2 border-blue-300"><p class="text-xl font-medium text-center">O "Triplo C":<br><b>CMN</b> (Conselho Monetário Nacional)<br><b>CNSP</b> (Conselho Nacional de Seguros Privados)<br><b>CNPC</b> (Conselho Nacional de Previdência Complementar)</p></div></div></div><div class="relative -top-6 z-10 flex justify-center"><button onclick="flipCard(this)" class="reveal-btn bg-blue-600 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors">Revelar</button></div><div class="flashcard-feedback-buttons mt-4 space-x-2 text-center"><button onclick="flashcardFeedback(this, true)" class="bg-green-500 text-white font-bold py-1 px-3 rounded hover:bg-green-600">Acertei</button><button onclick="flashcardFeedback(this, false)" class="bg-red-500 text-white font-bold py-1 px-3 rounded hover:bg-red-600">Errei</button></div><div class="flashcard-final-feedback text-center font-semibold mt-2 p-2 rounded text-sm"></div></div>
+                    <div class="flashcard-container"><div class="relative h-72 flashcard" style="perspective: 1000px;"><div class="flashcard-inner"><div class="flashcard-front bg-white rounded-lg card-shadow border-2 border-blue-200"><p class="text-2xl font-bold text-center">Quem são as entidades supervisoras?</p></div><div class="flashcard-back bg-blue-50 rounded-lg border-2 border-blue-300"><p class="text-xl font-medium text-center">BACEN, CVM, SUSEP e PREVIC.</p></div></div></div><div class="relative -top-6 z-10 flex justify-center"><button onclick="flipCard(this)" class="reveal-btn bg-blue-600 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors">Revelar</button></div><div class="flashcard-feedback-buttons mt-4 space-x-2 text-center"><button onclick="flashcardFeedback(this, true)" class="bg-green-500 text-white font-bold py-1 px-3 rounded hover:bg-green-600">Acertei</button><button onclick="flashcardFeedback(this, false)" class="bg-red-500 text-white font-bold py-1 px-3 rounded hover:bg-red-600">Errei</button></div><div class="flashcard-final-feedback text-center font-semibold mt-2 p-2 rounded text-sm"></div></div>
+                </div>
+            </div>
+
+            
+            <div class="mb-16">
+                <h4 class="text-xl font-bold text-gray-800 mb-8 border-b border-gray-200 pb-2">Capítulo 3: O Conselho Monetário Nacional (CMN)</h4>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-24">
+                     <div class="flashcard-container"><div class="relative h-72 flashcard" style="perspective: 1000px;"><div class="flashcard-inner"><div class="flashcard-front bg-white rounded-lg card-shadow border-2 border-blue-200"><p class="text-2xl font-bold text-center">Quem compõe o CMN?</p></div><div class="flashcard-back bg-blue-50 rounded-lg border-2 border-blue-300"><p class="text-xl font-medium text-center">Ministro da Fazenda (Presidente), Ministro do Planejamento e Presidente do Banco Central.</p></div></div></div><div class="relative -top-6 z-10 flex justify-center"><button onclick="flipCard(this)" class="reveal-btn bg-blue-600 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors">Revelar</button></div><div class="flashcard-feedback-buttons mt-4 space-x-2 text-center"><button onclick="flashcardFeedback(this, true)" class="bg-green-500 text-white font-bold py-1 px-3 rounded hover:bg-green-600">Acertei</button><button onclick="flashcardFeedback(this, false)" class="bg-red-500 text-white font-bold py-1 px-3 rounded hover:bg-red-600">Errei</button></div><div class="flashcard-final-feedback text-center font-semibold mt-2 p-2 rounded text-sm"></div></div>
+                     <div class="flashcard-container"><div class="relative h-72 flashcard" style="perspective: 1000px;"><div class="flashcard-inner"><div class="flashcard-front bg-white rounded-lg card-shadow border-2 border-blue-200"><p class="text-2xl font-bold text-center">Qual a principal atribuição do CMN em relação à inflação?</p></div><div class="flashcard-back bg-blue-50 rounded-lg border-2 border-blue-300"><p class="text-xl font-medium text-center">Definir a meta anual para a inflação.</p></div></div></div><div class="relative -top-6 z-10 flex justify-center"><button onclick="flipCard(this)" class="reveal-btn bg-blue-600 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors">Revelar</button></div><div class="flashcard-feedback-buttons mt-4 space-x-2 text-center"><button onclick="flashcardFeedback(this, true)" class="bg-green-500 text-white font-bold py-1 px-3 rounded hover:bg-green-600">Acertei</button><button onclick="flashcardFeedback(this, false)" class="bg-red-500 text-white font-bold py-1 px-3 rounded hover:bg-red-600">Errei</button></div><div class="flashcard-final-feedback text-center font-semibold mt-2 p-2 rounded text-sm"></div></div>
+                </div>
+            </div>
+
+            
+            <div class="mb-16">
+                <h4 class="text-xl font-bold text-gray-800 mb-8 border-b border-gray-200 pb-2">Capítulo 4: O Banco Central (BACEN)</h4>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-24">
+                     <div class="flashcard-container"><div class="relative h-72 flashcard" style="perspective: 1000px;"><div class="flashcard-inner"><div class="flashcard-front bg-white rounded-lg card-shadow border-2 border-blue-200"><p class="text-2xl font-bold text-center">Qual o objetivo fundamental do BACEN?</p></div><div class="flashcard-back bg-blue-50 rounded-lg border-2 border-blue-300"><p class="text-xl font-medium text-center">Assegurar a estabilidade de preços (controlar a inflação).</p></div></div></div><div class="relative -top-6 z-10 flex justify-center"><button onclick="flipCard(this)" class="reveal-btn bg-blue-600 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors">Revelar</button></div><div class="flashcard-feedback-buttons mt-4 space-x-2 text-center"><button onclick="flashcardFeedback(this, true)" class="bg-green-500 text-white font-bold py-1 px-3 rounded hover:bg-green-600">Acertei</button><button onclick="flashcardFeedback(this, false)" class="bg-red-500 text-white font-bold py-1 px-3 rounded hover:bg-red-600">Errei</button></div><div class="flashcard-final-feedback text-center font-semibold mt-2 p-2 rounded text-sm"></div></div>
+                     <div class="flashcard-container"><div class="relative h-72 flashcard" style="perspective: 1000px;"><div class="flashcard-inner"><div class="flashcard-front bg-white rounded-lg card-shadow border-2 border-blue-200"><p class="text-2xl font-bold text-center">O BACEN pode emprestar dinheiro ao Tesouro Nacional?</p></div><div class="flashcard-back bg-blue-50 rounded-lg border-2 border-blue-300"><p class="text-xl font-medium text-center">Não. É proibido de conceder empréstimos diretos ao Tesouro Nacional.</p></div></div></div><div class="relative -top-6 z-10 flex justify-center"><button onclick="flipCard(this)" class="reveal-btn bg-blue-600 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors">Revelar</button></div><div class="flashcard-feedback-buttons mt-4 space-x-2 text-center"><button onclick="flashcardFeedback(this, true)" class="bg-green-500 text-white font-bold py-1 px-3 rounded hover:bg-green-600">Acertei</button><button onclick="flashcardFeedback(this, false)" class="bg-red-500 text-white font-bold py-1 px-3 rounded hover:bg-red-600">Errei</button></div><div class="flashcard-final-feedback text-center font-semibold mt-2 p-2 rounded text-sm"></div></div>
+                </div>
+            </div>
+
+            
+            <div class="mb-16">
+                <h4 class="text-xl font-bold text-gray-800 mb-8 border-b border-gray-200 pb-2">Capítulo 5: A Comissão de Valores Mobiliários (CVM)</h4>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-24">
+                     <div class="flashcard-container"><div class="relative h-72 flashcard" style="perspective: 1000px;"><div class="flashcard-inner"><div class="flashcard-front bg-white rounded-lg card-shadow border-2 border-blue-200"><p class="text-2xl font-bold text-center">O que a CVM fiscaliza?</p></div><div class="flashcard-back bg-blue-50 rounded-lg border-2 border-blue-300"><p class="text-xl font-medium text-center">O mercado de valores mobiliários (ações, debentures, fundos de investimento, etc.).</p></div></div></div><div class="relative -top-6 z-10 flex justify-center"><button onclick="flipCard(this)" class="reveal-btn bg-blue-600 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors">Revelar</button></div><div class="flashcard-feedback-buttons mt-4 space-x-2 text-center"><button onclick="flashcardFeedback(this, true)" class="bg-green-500 text-white font-bold py-1 px-3 rounded hover:bg-green-600">Acertei</button><button onclick="flashcardFeedback(this, false)" class="bg-red-500 text-white font-bold py-1 px-3 rounded hover:bg-red-600">Errei</button></div><div class="flashcard-final-feedback text-center font-semibold mt-2 p-2 rounded text-sm"></div></div>
+                </div>
+            </div>
+
+            
+            <div class="mb-16">
+                <h4 class="text-xl font-bold text-gray-800 mb-8 border-b border-gray-200 pb-2">Capítulo 6: As Instituições Financeiras</h4>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-24">
+                     <div class="flashcard-container"><div class="relative h-72 flashcard" style="perspective: 1000px;"><div class="flashcard-inner"><div class="flashcard-front bg-white rounded-lg card-shadow border-2 border-blue-200"><p class="text-2xl font-bold text-center">O que diferencia uma instituição bancária de uma não bancária?</p></div><div class="flashcard-back bg-blue-50 rounded-lg border-2 border-blue-300"><p class="text-xl font-medium text-center">A capacidade de captar <b>depósitos à vista</b> (dinheiro em conta corrente). Só as bancárias podem.</p></div></div></div><div class="relative -top-6 z-10 flex justify-center"><button onclick="flipCard(this)" class="reveal-btn bg-blue-600 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors">Revelar</button></div><div class="flashcard-feedback-buttons mt-4 space-x-2 text-center"><button onclick="flashcardFeedback(this, true)" class="bg-green-500 text-white font-bold py-1 px-3 rounded hover:bg-green-600">Acertei</button><button onclick="flashcardFeedback(this, false)" class="bg-red-500 text-white font-bold py-1 px-3 rounded hover:bg-red-600">Errei</button></div><div class="flashcard-final-feedback text-center font-semibold mt-2 p-2 rounded text-sm"></div></div>
+                </div>
+            </div>
+
+            
+            <div class="mb-12">
+                <h4 class="text-xl font-bold text-gray-800 mb-8 border-b border-gray-200 pb-2">Capítulo 7: O Que Acontece Quando um Banco Entra em Crise?</h4>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-24">
+                     <div class="flashcard-container"><div class="relative h-72 flashcard" style="perspective: 1000px;"><div class="flashcard-inner"><div class="flashcard-front bg-white rounded-lg card-shadow border-2 border-blue-200"><p class="text-2xl font-bold text-center">Qual o regime de resolução mais severo aplicado pelo BACEN?</p></div><div class="flashcard-back bg-blue-50 rounded-lg border-2 border-blue-300"><p class="text-xl font-medium text-center">A <b>Liquidação Extrajudicial</b>, que encerra as atividades da instituição de forma compulsória e imediata.</p></div></div></div><div class="relative -top-6 z-10 flex justify-center"><button onclick="flipCard(this)" class="reveal-btn bg-blue-600 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors">Revelar</button></div><div class="flashcard-feedback-buttons mt-4 space-x-2 text-center"><button onclick="flashcardFeedback(this, true)" class="bg-green-500 text-white font-bold py-1 px-3 rounded hover:bg-green-600">Acertei</button><button onclick="flashcardFeedback(this, false)" class="bg-red-500 text-white font-bold py-1 px-3 rounded hover:bg-red-600">Errei</button></div><div class="flashcard-final-feedback text-center font-semibold mt-2 p-2 rounded text-sm"></div></div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Concurseiro Mapeado. Todos os direitos reservados.</p>
+            <p class="text-sm text-gray-400 mt-2">Siga <a href="https://www.instagram.com/concurseiromapeado" target="_blank" class="underline hover:text-blue-300">@concurseiromapeado</a> no Instagram.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('main-header');
+        if (header) {
+            window.onscroll = function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('header-scrolled');
+                } else {
+                    header.classList.remove('header-scrolled');
+                }
+            };
+        }
+
+        // Question Answer function
+        function checkAnswer(selectedOption) {
+            const card = selectedOption.closest('.question-card');
+            const feedbackEl = card.querySelector('.feedback');
+            const answerEl = card.querySelector('.answer');
+            const options = card.querySelectorAll('.option');
+
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+            });
+
+            const isCorrect = selectedOption.getAttribute('data-correct') === 'true';
+
+            if (isCorrect) {
+                selectedOption.classList.remove('bg-white', 'hover:bg-gray-100');
+                selectedOption.classList.add('!bg-green-100', '!border-green-500', 'text-green-800');
+                feedbackEl.innerHTML = '<span class="text-green-600">Você acertou! ✔️</span>';
+            } else {
+                selectedOption.classList.remove('bg-white', 'hover:bg-gray-100');
+                selectedOption.classList.add('!bg-red-100', '!border-red-500', 'text-red-800');
+                feedbackEl.innerHTML = '<span class="text-red-600">Você errou! ❌</span>';
+                const correctOption = card.querySelector('[data-correct="true"]');
+                if (correctOption) {
+                    correctOption.classList.remove('bg-white', 'hover:bg-gray-100');
+                    correctOption.classList.add('!bg-green-100', '!border-green-500');
+                }
+            }
+            feedbackEl.style.display = 'block';
+            answerEl.style.display = 'block';
+        }
+
+
+        // Flashcard functions
+        function flipCard(button) {
+            const container = button.closest('.flashcard-container');
+            container.classList.add('is-flipped');
+            button.style.display = 'none';
+            container.querySelector('.flashcard-feedback-buttons').style.display = 'block';
+        }
+
+        function flashcardFeedback(button, correct) {
+            const container = button.closest('.flashcard-container');
+            const feedbackButtons = container.querySelector('.flashcard-feedback-buttons');
+            const finalFeedback = container.querySelector('.flashcard-final-feedback');
+            feedbackButtons.style.display = 'none';
+            if (correct) {
+                finalFeedback.innerHTML = "Parabéns! Você está no caminho certo! 🚀";
+                finalFeedback.classList.add('bg-green-100', 'text-green-800');
+            } else {
+                finalFeedback.innerHTML = "Não desanime! O erro faz parte do processo. 💪";
+                finalFeedback.classList.add('bg-orange-100', 'text-orange-800');
+            }
+            finalFeedback.style.display = 'block';
+        }
+
+        function resetFlashcards() {
+            const containers = document.querySelectorAll('.flashcard-container');
+            containers.forEach(container => {
+                // Flip card back
+                container.classList.remove('is-flipped');
+
+                // Show reveal button
+                const revealBtn = container.querySelector('.reveal-btn');
+                if (revealBtn) {
+                    revealBtn.style.display = 'block';
+                }
+
+                // Hide feedback buttons
+                const feedbackButtons = container.querySelector('.flashcard-feedback-buttons');
+                if (feedbackButtons) {
+                    feedbackButtons.style.display = 'none';
+                }
+
+                // Hide and clear final feedback
+                const finalFeedback = container.querySelector('.flashcard-final-feedback');
+                if (finalFeedback) {
+                    finalFeedback.style.display = 'none';
+                    finalFeedback.innerHTML = '';
+                    // Reset classes to default state
+                    finalFeedback.className = 'flashcard-final-feedback text-center font-semibold mt-2 p-2 rounded text-sm';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
